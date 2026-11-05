@@ -66,3 +66,130 @@ h2 {
   white-space: nowrap;
   border: 0;
 }
+
+/* =========================================
+   HOMEPAGE ENTRANCE ANIMATIONS
+========================================= */
+
+.hero-copy {
+  animation: rise-in 0.7s ease-out both;
+}
+
+.hero-art {
+  animation: rise-in 0.9s ease-out 0.15s both;
+}
+
+.home-bottom {
+  animation: rise-in 0.8s ease-out 0.25s both;
+}
+
+/* =========================================
+   COMPASS GLOW
+========================================= */
+
+.hero-art .compass-mark {
+  animation: compass-glow 4s ease-in-out infinite;
+}
+
+/* =========================================
+   ARTICLE AND RELATED TOPICS
+========================================= */
+
+.article-card {
+  animation: rise-in 0.55s ease-out both;
+}
+
+.related-card {
+  animation: rise-in 0.55s ease-out both;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.related-card:hover {
+  background-color: #1d3048;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 18%);
+}
+
+/* =========================================
+   BUTTON FEEDBACK
+========================================= */
+
+.example-buttons button,
+.save-button,
+.search-form button,
+.surprise-button {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.example-buttons button:hover,
+.search-form button:hover,
+.surprise-button:hover {
+  transform: translateY(-2px);
+}
+
+.example-buttons button:active,
+.search-form button:active,
+.save-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   ANIMATION KEYFRAMES
+========================================= */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes compass-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgb(151 230 199 / 15%));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px rgb(151 230 199 / 55%));
+  }
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-art,
+  .home-bottom,
+  .hero-art .compass-mark,
+  .article-card,
+  .related-card {
+    animation: none;
+  }
+
+  .example-buttons button,
+  .save-button,
+  .search-form button,
+  .surprise-button,
+  .related-card {
+    transition: none;
+  }
+
+  .example-buttons button:hover,
+  .search-form button:hover,
+  .surprise-button:hover,
+  .related-card:hover {
+    transform: none;
+  }
+}
